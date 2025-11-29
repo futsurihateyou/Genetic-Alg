@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class ParticleSwarmOptimization {
     private int swarmSize;
-    private double c1, c2; // Cognitive and social coefficients
-    private double wMax = 0.9, wMin = 0.4; // Inertia bounds
+    private double c1, c2;
+    private double wMax = 0.9, wMin = 0.4;
     private int maxIterations;
     private ObjectiveFunction function;
     private Random random = new Random();
@@ -16,7 +16,7 @@ public class ParticleSwarmOptimization {
     private List<Particle> swarm;
     private double[] globalBestPosition;
     private double globalBestFitness;
-    private boolean useLBest = false; // Toggle LBEST
+    private boolean useLBest = false;
 
     public ParticleSwarmOptimization(int swarmSize, double c1, double c2, int maxIterations, ObjectiveFunction function, boolean useLBest) {
         this.swarmSize = swarmSize;
@@ -87,7 +87,6 @@ public class ParticleSwarmOptimization {
     }
 
     private double[] getNeighborhoodBest(int index) {
-        // LBEST: Ring topology, 2 neighbors
         int prev = (index - 1 + swarmSize) % swarmSize;
         int next = (index + 1) % swarmSize;
         Particle best = swarm.get(index);

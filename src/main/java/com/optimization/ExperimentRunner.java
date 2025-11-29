@@ -25,7 +25,6 @@ public class ExperimentRunner {
             JSONObject funcResult = new JSONObject();
             funcResult.put("function", funcNames[f]);
 
-            // GA
             JSONArray gaResults = new JSONArray();
             for (int r = 0; r < runs; r++) {
                 long start = System.currentTimeMillis();
@@ -41,7 +40,6 @@ public class ExperimentRunner {
             }
             funcResult.put("GA", gaResults);
 
-            // PSO
             JSONArray psoResults = new JSONArray();
             for (int r = 0; r < runs; r++) {
                 long start = System.currentTimeMillis();

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GeneticAlgorithm {
     private int populationSize;
-    private int chromosomeLength; // Bits per variable * dimensions
+    private int chromosomeLength; // bits per variable * dimensions mb incorrect
     private double mutationRate;
     private int maxGenerations;
     private ObjectiveFunction function;
@@ -24,7 +24,7 @@ public class GeneticAlgorithm {
         double[] bounds = function.getBounds();
         this.lowerBound = bounds[0];
         this.upperBound = bounds[1];
-        this.chromosomeLength = 32 * dimensions; // 32 bits per variable
+        this.chromosomeLength = 32 * dimensions; // 32 bits per var
         initializePopulation();
     }
 
@@ -45,7 +45,7 @@ public class GeneticAlgorithm {
             evaluatePopulation();
             List<Individual> newPopulation = new ArrayList<>();
 
-            // Elitism: Keep best
+            // idk maybe will be edited
             Individual best = getBestIndividual();
             newPopulation.add(best);
 
@@ -60,12 +60,12 @@ public class GeneticAlgorithm {
             }
             population = newPopulation.subList(0, populationSize);
 
-            // Self-adaptation: Adjust mutation rate if no improvement
-            if (gen > 0 && getBestFitness() == population.get(0).fitness) { // No improvement
-                mutationRate *= 1.1; // Increase mutation for exploration
+
+            if (gen > 0 && getBestFitness() == population.get(0).fitness) {
+                mutationRate *= 1.1;
                 if (mutationRate > 0.1) mutationRate = 0.1;
             } else {
-                mutationRate *= 0.9; // Decrease for exploitation
+                mutationRate *= 0.9;
                 if (mutationRate < 0.001) mutationRate = 0.001;
             }
         }
@@ -82,11 +82,11 @@ public class GeneticAlgorithm {
 
     private Individual tournamentSelection() {
         Individual best = population.get(random.nextInt(populationSize));
-        for (int i = 1; i < 3; i++) { // Tournament size 3
+        for (int i = 1; i < 3; i++) {
             Individual contender = population.get(random.nextInt(populationSize));
             if (contender.fitness < best.fitness) best = contender;
         }
-        return new Individual(best.chromosome.clone()); // Copy
+        return new Individual(best.chromosome.clone());
     }
 
     private Individual[] crossover(Individual p1, Individual p2) {
