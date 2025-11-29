@@ -1,0 +1,42 @@
+plugins {
+    id 'java'  // Если нет, добавьте
+    id 'application'  // Для запуска приложения
+    id 'org.openjfx.javafxplugin' version '0.1.0'  // Плагин для JavaFX
+}
+
+group = 'com.optimization'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()  // Обязательно, чтобы Gradle искал в Maven Central
+}
+
+dependencies {
+    // Обновлённая зависимость для org.json (последняя версия на ноябрь 2025)
+    implementation 'org.json:json:20250517'
+
+    // Другие зависимости, если есть (например, для тестов или других библиотек)
+}
+
+javafx {
+    version = '23'  // Актуальная версия JavaFX (или ваша текущая)
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = 'com.optimization.MainApp'
+    applicationDefaultJvmArgs = ['-Dfile.encoding=UTF-8']
+}
+
+// Для совместимости с модулями (опционально)
+java {
+    sourceCompatibility = JavaVersion.VERSION_21  // Или '21'
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'  // Для компиляции
+}
+tasks.named('run') {
+    jvmArgs = ['-Dfile.encoding=UTF-8', '-Dconsole.encoding=UTF-8']
+}
