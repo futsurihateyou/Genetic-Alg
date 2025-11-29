@@ -86,7 +86,7 @@ public class MainApp extends Application {
         tabPane.getTabs().addAll(gaTab, psoTab, expTab);
 
         Scene scene = new Scene(tabPane, 600, 400);
-        scene.getRoot().setStyle("-fx-font-family: 'Arial';");  // Добавьте эту строку
+        scene.getRoot().setStyle("-fx-font-family: 'Arial';"); 
         primaryStage.setTitle("Алгоритмы оптимизации");
         primaryStage.setScene(scene);
         primaryStage.show();
