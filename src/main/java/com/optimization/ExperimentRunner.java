@@ -36,6 +36,13 @@ public class ExperimentRunner {
                 runRes.put("run", r);
                 runRes.put("best_fitness", bestFit);
                 runRes.put("time_ms", time);
+
+                JSONArray coordinates = new JSONArray();
+                for (double coord : bestPos) {
+                    coordinates.put(coord);
+                }
+                runRes.put("coordinates", coordinates);
+
                 gaResults.put(runRes);
             }
             funcResult.put("GA", gaResults);
@@ -51,6 +58,13 @@ public class ExperimentRunner {
                 runRes.put("run", r);
                 runRes.put("best_fitness", bestFit);
                 runRes.put("time_ms", time);
+
+                JSONArray coordinates = new JSONArray();
+                for (double coord : bestPos) {
+                    coordinates.put(coord);
+                }
+                runRes.put("coordinates", coordinates);
+
                 psoResults.put(runRes);
             }
             funcResult.put("PSO", psoResults);
