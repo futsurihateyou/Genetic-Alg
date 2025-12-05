@@ -27,7 +27,7 @@ public class MainApp extends Application {
         runGa.setOnAction(e -> {
             int pop = Integer.parseInt(gaPopSize.getText());
             double mut = Double.parseDouble(gaMutRate.getText());
-            int gens = Integer.parseInt(gaGens.getText());
+            int gens = Integer.parseInt(gaGens.getText()); //
             int dim = Integer.parseInt(dims.getText());
             ObjectiveFunction func = getFunction(funcChoice.getValue(), dim);
             GeneticAlgorithm ga = new GeneticAlgorithm(pop, mut, gens, func);

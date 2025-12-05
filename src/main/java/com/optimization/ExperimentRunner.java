@@ -43,7 +43,7 @@ public class ExperimentRunner {
                 }
                 runRes.put("coordinates", coordinates);
 
-                gaResults.put(runRes);
+                gaResults.put(runRes); //
             }
             funcResult.put("GA", gaResults);
 

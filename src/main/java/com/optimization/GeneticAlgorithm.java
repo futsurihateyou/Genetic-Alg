@@ -35,7 +35,7 @@ public class GeneticAlgorithm {
             for (int j = 0; j < chromosomeLength; j++) {
                 chromosome[j] = random.nextBoolean();
             }
-            population.add(new Individual(chromosome));
+            population.add(new Individual(chromosome)); //
         }
     }
 

@@ -11,7 +11,7 @@ public class AckleyFunction implements ObjectiveFunction {
 
     @Override
     public double evaluate(double[] x) {
-        double sum1 = 0, sum2 = 0;
+        double sum1 = 0, sum2 = 0; //
         for (double xi : x) {
             sum1 += xi * xi;
             sum2 += Math.cos(2 * Math.PI * xi);

@@ -15,7 +15,7 @@ public class SphereFunction implements ObjectiveFunction {
         for (double xi : x) {
             sum += xi * xi;
         }
-        return sum;
+        return sum; //
     }
 
     @Override
